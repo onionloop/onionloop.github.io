@@ -484,17 +484,30 @@ nav ul a:hover {
 
 .skill-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  max-width: 860px;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
 }
 
-.skill-pill {
+.group {
+  display: flex;
+  align-items: center;
+  gap: 1rem; 
+  padding-right: 1rem;
+  flex-shrink: 0;
+  animation: marquee 20s infinite linear;
+}
+
+.skill-container:hover .group {
+  animation-play-state: paused;
+}
+
+.skill-pill { 
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 18px;
+  padding: 12px 20px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -502,6 +515,34 @@ nav ul a:hover {
   cursor: default;
 }
 
+.skill-pill img {
+  height: 18px;
+  width: 18px;
+  object-fit: contain;
+}
+
+.skill-pill span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.skill-pill:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 .skill-pill img {
   height: 18px;
   width: 18px;
