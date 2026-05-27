@@ -339,7 +339,9 @@ nav ul a:hover {
   flex-direction: column;
   transition: all 0.3s ease;
   height: 100%;
+  position: relative;
 }
+
 
 .card:hover {
   transform: translateY(-6px);
@@ -350,13 +352,54 @@ nav ul a:hover {
 .card-img,
 .card-img-placeholder {
   width: 100%;
-  height: 200px;
+  height: 240px;
   object-fit: cover;
   border-bottom: 1px solid var(--border);
 }
 
+.project-preview{
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+
+.project-bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.project-bg{
+  filter: blur(2px);
+  transform: scale(1.05);
+}
+
+.project-ss{
+  position: relative;
+  width: 82%;
+  border-radius: 14px;
+  z-index: 2;
+  box-shadow: 0 20 40px rgba(0,0,0,0.45);
+  transition: 0.3s ease;
+}
+
+
+.card:hover .project-ss{
+  transform: translateY(-4px) scale(1.02);
+}
+
+
 .card-img-placeholder {
-  background: var(--surface2);
+  background: radial-gradient(ellipse at 60% 40%, #3b1f6e 0%, #0d0d1a 70%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -590,4 +633,3 @@ nav ul a:hover {
 #skills {
   border-top: 1px solid var(--border);
 }
-
